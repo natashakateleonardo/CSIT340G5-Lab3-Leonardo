@@ -1,15 +1,23 @@
 const Header = (props) => <h1>{props.course}</h1>
 
+const Part = (props) => <p>{props.name} {props.exercises}</p>
+
 const Content = (props) => (
   <div>
-    <p>{props.part1} {props.exercises1}</p>
-    <p>{props.part2} {props.exercises2}</p>
-    <p>{props.part3} {props.exercises3}</p>
+    <Part name={props.part1} exercises={props.exercises1} />
+    <Part name={props.part2} exercises={props.exercises2} />
+    <Part name={props.part3} exercises={props.exercises3} />
   </div>
 )
 
 const Total = (props) => (
   <p>Number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>
+)
+
+const Footer = (props) => (
+  <footer>
+    {props.name} - {props.courseCode} - {props.section}
+  </footer>
 )
 
 const App = () => {
@@ -21,6 +29,10 @@ const App = () => {
   const part3 = 'ENGL014 - Technical Writing'
   const exercises3 = 3
 
+  const studentName = 'Natasha Kate A. Leonardo'
+  const courseCode = 'CSIT340'
+  const section = 'G5'
+
   return (
     <div>
       <Header course={course} />
@@ -30,6 +42,7 @@ const App = () => {
         part3={part3} exercises3={exercises3}
       />
       <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3} />
+      <Footer name={studentName} courseCode={courseCode} section={section} />
     </div>
   )
 }
